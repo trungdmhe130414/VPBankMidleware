@@ -1,0 +1,49 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.4'
+	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
+	implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.1'
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-feign
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '3.1.1'
+	// https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc
+	implementation 'com.microsoft.sqlserver:mssql-jdbc:11.2.1.jre8'
+	// https://mvnrepository.com/artifact/org.json/json
+	implementation group: 'org.json', name: 'json', version: '20220924'
+	// https://mvnrepository.com/artifact/org.quartz-scheduler/quartz
+	implementation group: 'org.quartz-scheduler', name: 'quartz', version: '2.3.0'
+
+	implementation 'io.github.openfeign:feign-httpclient:11.0'
+	// https://mvnrepository.com/artifact/io.github.openfeign/feign-okhttp
+	implementation group: 'io.github.openfeign', name: 'feign-okhttp', version: '9.2.0'
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-quartz
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-quartz', version: '2.7.4'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

@@ -1,0 +1,56 @@
+#Default server port
+server:
+  port: 8084
+  tomcat:
+    threads:
+      max: 400
+#spring:
+#  datasource:
+#        jdbc-url: jdbc:jtds:sqlserver://10.15.68.119:1433/einv_owner
+#        username: sa
+#        password: YWRtaW5AMTIz
+#  jpa:
+#    properties:
+#      hibernate:
+#        ddl-auto: none
+#spring:
+#  datasource:
+#      url: jdbc:jtds:sqlserver://10.15.68.119:1433/einv_owner
+#      username: sa
+#      password: admin@123
+#      driver-class-name: net.sourceforge.jtds.jdbc.Driver
+#      tomcat:
+#        max-wait: 10000
+#        max-active: 50
+#        test-on-borrow: true
+spring:
+  datasource:
+    jdbc:
+      username: sa
+      password: admin@123
+      jdbc-url: jdbc:sqlserver://10.15.68.119:1433;databaseName=einv_owner;encrypt=true;trustServerCertificate=true;
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: none
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        show_sql: true
+
+  feign:
+    httpclient:
+      enabled: false
+    okhttp:
+      enabled: false
+  proxy:
+    type: HTTP
+
+ftvan-api-url : https://tvan.webhoadon.com.vn/ftvan-hddt
+
+ftvan-username : SMBC
+ftvan-password : smbc123
+
+proxy-host : 123
+proxy-port : 123
+
